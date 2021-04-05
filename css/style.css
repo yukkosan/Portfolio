@@ -1,0 +1,638 @@
+:root {
+    --clr-main: #BDD3E8;
+    --clr-dark-1: #005bab83;
+    --light-hover-01: #f2f8fcce;
+    --clr-stc: #333;
+    --bgc-06: rgba(0, 0, 0, 0.6);
+    --ff-primary: 'Poppins', sans-serif;
+    --ff-accent: Hiragino Kaku Gothic Pro,"ヒラギノ角ゴ Pro W3",Meiryo,"メイリオ",Osaka,MS PGothic,helvetica,sans-serif;
+}
+
+.loader-wrapper {
+    width: 100vw;
+    min-height: 100vh;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 30;
+}
+
+
+body {
+    font-family: var(--ff-primary);
+    letter-spacing: .5em;
+    font-size: 1.6rem;
+    color: var(--clr-stc);
+    height: 100vh;
+}
+
+p {
+    line-height: 2;
+    letter-spacing: .1em;
+}
+
+/* .fadeUp {
+    animation-name: fadeUpAnime;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} */
+.section-wrapper {
+    padding: 100px 4vw 60px;
+    z-index: 1;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 4rem;
+    color: var(--clr-stc);
+}
+
+
+/* ------------------------------ */
+/* header */
+/* ------------------------------ */
+
+.header {
+    padding: 30px 4vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 1px 5px var(--clr-main);
+    background-color: rgba(255, 255, 255, 0.6);
+    z-index: 10;
+}
+
+/* --clr-lignt-02 */
+
+.header-title a {
+    color: var(--clr-stc); 
+}
+
+.header-title {
+    font-size: 1.5rem;
+}
+
+.header-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    font-weight: bold;
+    background-color: var(--light-hover-01);
+    z-index: 3;
+}
+
+.nav-list li a {
+    position: relative;
+    font-size: 1.5rem;
+    padding: 2px;
+}
+
+.nav-list li a::before {
+    position: absolute;
+    top: 23px;
+    content: '';
+    width: 92%;
+    height: 2px;
+    background: var(--clr-stc);
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+    overflow: hidden;
+
+}
+
+.header-nav li a:hover::before {
+    transform-origin: left top;
+    transform: scale(1, 1);
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+    justify-content: center;
+}
+
+.nav-list li:not(:last-of-type) {
+    margin-bottom: 50px;
+}
+
+/* humburger menu */
+.humburger {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 4vw;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    z-index: 3;
+}
+
+.bar {
+    display: block;
+    width: 70%;
+    height: 1px;
+    background-color: var(--clr-stc);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bar-top {
+    top: 14px;
+}
+
+.bar-bottom {
+    top: 36px;
+}
+
+.humburger.active .bar-top {
+    transform: translate(-50%, 15px) rotate(45deg);
+    transition: transform .3s;
+}
+
+.humburger.active .bar-mid {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.humburger.active .bar-bottom {
+    transform: translate(-50%, -8px) rotate(-45deg);
+    transition: transform .3s;
+}
+
+
+/* header-fv */
+.parallax {
+    min-height: 100vh;
+    background: transparent;
+}
+
+ /* background-attachment: scroll; */
+#home .fv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Caveat', cursive;
+    color: var(--clr-stc);
+    width: 80vw;
+    text-align: center;
+}
+
+.fv h1 {
+    font-size: 6rem;
+    transform: rotate(-10deg);
+}
+
+.fv p {
+    font-size: 2rem;
+    transform: rotate(-10deg);
+    margin-top: 10px;
+}
+
+
+/* タブレットサイズ以上 */
+@media screen and (min-width: 768px) {
+    #home {
+        background-attachment: fixed;
+    }
+    .section-wrapper {
+        padding: 100px 4vw 120px;
+    }
+    .header-title {
+        font-size: 2rem;
+    }
+    .fv-text h1 {
+        font-size: 8rem;
+    }
+    .fv-text p {
+        font-size: 4rem;
+    }
+    .humburger {
+        display: none;
+    }
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .header-nav {
+        position: static;
+        height: 100%;
+        font-weight: normal;
+        background-color: transparent; 
+        display: block;
+    }
+    .nav-list {
+        flex-direction: row;
+    }
+    .nav-list li:not(:last-of-type) {
+        margin-bottom: 0;
+    }
+    .nav-item {
+        margin-right: 2vw;
+    }
+    .nav-item:last-of-type {
+        margin-right: 0;
+    }
+
+}
+
+/* PCサイズ以上 */
+@media screen and (min-width: 990px) {
+    .fv h1 {
+        font-size: 10rem;
+    }
+    .fv p {
+        font-size: 5rem;
+    }
+}
+
+/* ------------------------------ */
+/* about */
+/* ------------------------------ */
+#about {
+    background-color: #fff;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.myphoto,
+.aboutMe-wrapper {
+    flex-basis: 100%;
+}
+
+.myphoto {
+    margin: 0 auto 40px;
+}
+
+.photo-img {
+    background-image: url(../img/myphoto.jpeg);
+    width: 290px;
+    height: 290px;
+    box-shadow: 0 0 10px;
+    border-radius: 50%;
+    background-size: 350px 350px;
+    background-position: center left;
+}
+
+.fab a {
+    display: block;
+}
+
+.fa-twitter {
+    color: #1DA1F2;
+}
+
+.name {
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 1.8;
+    color: var(--clr-stc);
+}
+
+.name-en {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.aboutMe p{
+    margin: 30px 0;
+    font-size: 1.5rem;
+}
+
+.twitter {
+    text-align: center;
+}
+
+.aboutMe {
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+    .section-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .about-container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .myphoto {
+        margin-bottom: 0;
+    } 
+    .aboutMe p{
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (min-width: 990px) {
+    .photo-img {
+        margin-left: 7vw;
+    }
+    .photo-img {
+        margin-left: 4vw;
+    }
+    .aboutMe p{
+        font-size: 1.8rem;
+    }
+}
+
+/* ------------------------------ */
+/* skill */
+/* ------------------------------ */
+#skill {
+    background: url(../img/snow.png);
+    /* background-image透かす時 */
+    background-color:rgba(255,255,255,0.2);
+    background-blend-mode:lighten;
+    height: 1055px;
+    position: relative;
+    box-shadow: 0 0 6px #8fb5d8;
+}
+
+/* スライド入れたいけどできない */
+#skill::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--clr-main);
+    transition: .5s;
+}
+.fade::before {
+    width: 100%;
+}
+/* ここまで */
+
+.skill-border {
+    height: 1.5px;
+    background-color: var(--clr-dark-1);
+    border: none;
+    margin: 0 auto;
+}
+
+.skill-icon {
+    font-size: 10rem;
+}
+
+.skill-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.skill-list li:not(:last-of-type) {
+    margin-bottom: 25px;
+}
+
+.skill-item {
+    width: 250px;
+    height: 250px;
+    border: 1.5px solid var(--clr-main);
+    border-radius: 3px;
+    padding: 15px 10px 10px;
+    box-shadow: 0 0 6px var(--clr-dark-1);
+    background-color: #fff;
+}
+
+.skill-title {
+    font-size: 1.6rem;
+    padding: 12px 0 6px;
+    text-align: left;
+    letter-spacing: .05em;
+    color: var(--clr-stc);
+}
+
+.skill-text {
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+    .skill-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .skill-list li:last-of-type {
+        margin: 50px auto 0;
+    }
+    #skill {
+        height: 885px;
+    }
+}
+
+@media screen and (min-width: 840px) {
+    .skill-list {
+        max-width: 1200px;
+    }
+    .skill-list li:not(:last-of-type) {
+        margin-bottom: 0;
+    }
+    .skill-list li:nth-child(1),
+    .skill-list li:last-of-type {
+        margin: 0;
+    }
+    #skill {
+        height: 560px;
+    }
+}
+
+/* ------------------------------ */
+/* works */
+/* ------------------------------ */
+
+.works-container {
+    margin: 0  8vw;
+}
+
+.work-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.work-item {
+    max-width: 350px;
+    height: auto;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.work-item img {
+    /* (reset.cssに記入済み) */
+    max-width: 100%; 
+    height: auto;
+    margin: 0;
+    transition: all .3s linear 0s;
+}
+
+.work-item img:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.work-list li:not(:last-of-type) {
+    margin-bottom: 50px;
+}
+
+.work-name {
+    font-size: 1.6rem;
+    margin-top: 20px;
+    text-align: center;
+    letter-spacing: .1em;
+}
+
+@media screen and (min-width: 768px) {
+    #works {
+        background-attachment: fixed;
+    }
+    .works-container {
+        margin: 0;
+    }
+    .work-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 0 auto;
+    }
+    .work-list li:not(:last-of-type) {
+        margin-bottom: 0;
+    }
+    .work-list li:last-child {
+        margin-top: 50px;
+    }
+    .work-item {
+        max-width: 330px;
+    }
+    .work-name {
+        font-size: 1.7rem;
+    }
+    
+}
+
+@media screen and (min-width: 1096px) {
+    .work-list li:last-child {
+        margin-top: 0;
+    }
+} 
+
+/* ------------------------------ */
+/* contact */
+/* ------------------------------ */
+#contact {
+    background-color: #fff;
+}
+
+.form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form > div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+}
+
+.form > div > label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+}
+
+.form-text {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+input, textarea {
+    border: 1px solid var(--clr-stc);
+    padding: 10px;
+    border-radius: 3px;
+}
+
+#name, #email,
+#message {
+    font-size: 1.6rem;
+}
+#message {
+    line-height: 1.6;
+    height: 170px;
+}
+
+.form-send {
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.form-btn {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 16px 0;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #fff;
+    background-color: var(--clr-main);
+    border: 1px solid var(--clr-main);
+    box-shadow: 0 0 6px #8fb5d8;
+    transition: all .3s;
+}
+
+.form-btn:hover {
+    background-color: #fff;
+    color: var(--clr-main);
+}
+
+@media screen and (min-width: 768px) {
+    .form-text {
+        font-size: 1.7rem;
+    }
+}
+
+/* footer */
+
+.footer {
+    text-align: center;
+    background-color: var(--clr-main);
+    padding: 1.5rem 0;
+}
+
