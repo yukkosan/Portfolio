@@ -218,9 +218,6 @@ p {
 
 /* タブレットサイズ以上 */
 @media screen and (min-width: 768px) {
-    #home {
-        background-attachment: fixed;
-    }
     .section-wrapper {
         padding: 100px 4vw 120px;
     }
@@ -521,9 +518,6 @@ p {
 }
 
 @media screen and (min-width: 768px) {
-    #works {
-        background-attachment: fixed;
-    }
     .works-container {
         margin: 0;
     }
