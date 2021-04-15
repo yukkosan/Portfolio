@@ -303,8 +303,9 @@ p {
     background-position: center left;
 }
 
-.fab a {
-    display: block;
+.twitter a {
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .fa-twitter {
